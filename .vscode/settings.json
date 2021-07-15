@@ -1,0 +1,7 @@
+{
+    "emmet.syntaxProfiles": {
+        "editor.formatOnSave": true, // 编辑器保存自动格式化
+        "prettier.semi": false, // 语句结束不添加分号
+        "prettier.singleQuote": true, 
+    }
+}

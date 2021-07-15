@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <style></style>
+</head>
+
+<body>
+    <div id="app">
+        <count ref="one" @change="handleChange"></count>
+        <count ref="two" @change="handleChange"></count>
+        <div>{{total}}</div>
+    </div>
+    <script>
+        Vue.component("count", {
+            template: '<div @click="handleClick">{{number}}</div>',
+            data: function () {
+                return {
+                    number: 0,
+                };
+            },
+
+            methods: {
+                handleClick: function () {
+                    this.number++;
+                    this.$emit("change");
+                },
+            },
+        });
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                total: 0,
+            },
+            methods: {
+                handColor: function () {
+                    this.isactivated = !this.isactivated;
+                },
+                handleChange: function () {
+                    this.total = this.$refs.one.number + this.$refs.two.number;
+                    
+                },
+            },
+        });
+    </script>
+</body>
+
+</html>
